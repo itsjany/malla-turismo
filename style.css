@@ -1,46 +1,79 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #e6f5f1;
-  color: #333;
-  margin: 0;
-  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #e3f2fd;
+  color: #004d40;
+  margin: 20px;
 }
 
 h1 {
   text-align: center;
-  color: #2e7d6f;
+  margin-bottom: 40px;
+  color: #00695c;
 }
 
-#grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  padding: 20px;
+/* Contenedor principal que organiza semestres en filas y columnas */
+#malla {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
-.course {
-  background-color: #d1f2eb;
-  border-left: 6px solid #2e7d6f;
-  padding: 15px;
-  border-radius: 10px;
-  transition: transform 0.2s, background-color 0.2s;
-  cursor: pointer;
-  position: relative;
-}
-
-.course.locked {
-  background-color: #e0e0e0;
-  border-color: #aaa;
-  color: #888;
-  cursor: not-allowed;
-}
-
-.course:hover:not(.locked) {
-  transform: scale(1.03);
+/* Cada semestre es una tarjeta */
+.semestre {
   background-color: #b2dfdb;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #004d40aa;
+  padding: 15px;
+  width: 250px; /* ancho fijo para columnas */
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
 }
 
-.course.done {
-  background-color: #a5d6a7;
-  border-color: #388e3c;
+.semestre h2 {
+  background-color: #00796b;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.ramo {
+  background-color: #4db6ac;
+  margin: 8px 0;
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 5px #004d40aa;
+  color: white;
+  flex-shrink: 0;
+}
+
+.ramo:hover:not(.aprobado):not(.desbloqueado) {
+  background-color: #80cbc4;
+}
+
+.ramo.aprobado {
+  background-color: #004d40;
+  color: #a5d6a7;
+  text-decoration: line-through;
+  cursor: default;
+  box-shadow: 0 0 10px #1b5e20;
+}
+
+.ramo.desbloqueado {
+  background-color: #00796b;
+}
+
+.ramo.bloqueado {
+  background-color: #cfd8dc;
+  color: #90a4ae;
+  cursor: not-allowed;
+  text-decoration: none;
+  box-shadow: none;
 }
