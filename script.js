@@ -1,77 +1,56 @@
-// Cuando cargue la página
 document.addEventListener('DOMContentLoaded', () => {
   const ramos = document.querySelectorAll('.ramo');
 
-  // Inicializar: todos bloqueados menos los que no tienen prerequisitos (los primeros)
+  // Primero, bloquear todos
   ramos.forEach(ramo => {
-    const desbloquea = ramo.dataset.desbloquea;
-    // Si desbloquea algo, pero no está desbloqueado ni aprobado
-    if (desbloquea) {
-      ramo.classList.add('bloqueado');
-    } else {
-      // Si no desbloquea nada, pero es un ramo inicial, se desbloquea
-      if (!ramo.dataset.id) return;
-      // Permitimos que los primeros estén desbloqueados si no tienen prerequisitos
-      ramo.classList.remove('bloqueado');
-      ramo.classList.add('desbloqueado');
-    }
+    ramo.classList.add('bloqueado');
+    ramo.classList.remove('aprobado');
+    ramo.classList.remove('desbloqueado');
   });
 
-  // Método para desbloquear ramos cuando apruebas uno
-  function desbloquear(ramoId) {
+  // Función para verificar si un ramo está desbloqueado
+  function puedeDesbloquear(ramo) {
+    const prerequisitosStr = ramo.dataset.prerequisitos.trim();
+    if (!prerequisitosStr) return true; // Sin prerequisitos, desbloqueado
+
+    const prerequisitos = prerequisitosStr.split(',').map(p => p.trim()).filter(p => p);
+    // Para desbloquear, TODOS los prerequisitos deben estar aprobados
+    return prerequisitos.every(pr => {
+      const preRamo = document.querySelector(`.ramo[data-id="${pr}"]`);
+      return preRamo && preRamo.classList.contains('aprobado');
+    });
+  }
+
+  // Función para actualizar el estado de todos los ramos
+  function actualizarEstados() {
     ramos.forEach(ramo => {
-      const prerequisitos = ramo.dataset.desbloquea ? ramo.dataset.desbloquea.split(',') : [];
-      if (prerequisitos.includes(ramoId)) {
-        if (!ramo.classList.contains('aprobado')) {
-          ramo.classList.remove('bloqueado');
-          ramo.classList.add('desbloqueado');
-        }
+      if (ramo.classList.contains('aprobado')) {
+        ramo.classList.remove('bloqueado');
+        ramo.classList.remove('desbloqueado');
+      } else if (puedeDesbloquear(ramo)) {
+        ramo.classList.remove('bloqueado');
+        ramo.classList.add('desbloqueado');
+      } else {
+        ramo.classList.add('bloqueado');
+        ramo.classList.remove('desbloqueado');
       }
     });
   }
 
-  // Para cada ramo, al hacer click
+  actualizarEstados();
+
+  // Evento click para aprobar ramos desbloqueados
   ramos.forEach(ramo => {
-    // Los ramos bloqueados no reaccionan
     ramo.addEventListener('click', () => {
-      if (ramo.classList.contains('bloqueado')) return;
+      if (ramo.classList.contains('bloqueado')) return; // bloqueado no hace nada
+      if (ramo.classList.contains('aprobado')) return; // ya aprobado, no hace nada
 
-      // Si está aprobado, no hace nada
-      if (ramo.classList.contains('aprobado')) return;
-
-      // Cambia el estado a aprobado
+      // Aprobar el ramo
       ramo.classList.add('aprobado');
       ramo.classList.remove('desbloqueado');
 
-      // Desbloquea los ramos que dependen de este
-      const id = ramo.dataset.id;
-      desbloquear(id);
+      // Actualizar el estado de todos los ramos (para desbloquear los que dependan)
+      actualizarEstados();
     });
-  });
-
-  // Para que los ramos iniciales se desbloqueen (los que no tienen prerequisitos)
-  // Buscamos ramos que NO estén en la lista de prerequisitos de ningún otro ramo
-  const todosIds = Array.from(ramos).map(r => r.dataset.id);
-  const idsPrerrequisitos = [];
-
-  ramos.forEach(ramo => {
-    const desbloquea = ramo.dataset.desbloquea;
-    if (desbloquea) {
-      desbloquea.split(',').forEach(id => {
-        if (id) idsPrerrequisitos.push(id);
-      });
-    }
-  });
-
-  // Los iniciales son los que no aparecen en idsPrerrequisitos
-  const iniciales = todosIds.filter(id => !idsPrerrequisitos.includes(id));
-
-  // Desbloquear iniciales
-  iniciales.forEach(id => {
-    const r = document.querySelector(`.ramo[data-id="${id}"]`);
-    if (r && !r.classList.contains('aprobado')) {
-      r.classList.remove('bloqueado');
-      r.classList.add('desbloqueado');
-    }
   });
 });
