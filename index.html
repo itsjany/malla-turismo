@@ -1,15 +1,28 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malla Curricular Turismo</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
-  <h1>Malla Curricular - Turismo</h1>
-  <p>Haz clic en cada asignatura para marcarla como aprobada y desbloquear las siguientes.</p>
-  <div id="grid"></div>
+  <h1>Malla Curricular Turismo</h1>
+  <div id="malla">
+    <!-- Cada semestre será un "bloque" -->
+    <div class="semestre" id="semestre1">
+      <h2>1er Semestre</h2>
+      <div class="ramo" data-id="matematica_financiera" data-desbloquea="estadistica_descriptiva,economia_turismo">Matemáticas financiera</div>
+      <div class="ramo" data-id="introduccion_turismo" data-desbloquea="historia_ecuador">Introducción al turismo</div>
+      <div class="ramo" data-id="geografia_turistica" data-desbloquea="ecologia_medio_ambiente">Geografía turística</div>
+      <div class="ramo" data-id="lenguaje_comunicacion" data-desbloquea="investigacion">Lenguaje y comunicación</div>
+      <div class="ramo" data-id="ingles_i" data-desbloquea="ingles_ii">Inglés I</div>
+    </div>
+
+    <div class="semestre" id="semestre2">
+      <h2>2do Semestre</h2>
+      <div class="ramo" data-id="etiqueta_protocolo" data-desbloquea="">Etiqueta y protocolo para turismo y hotelería</div>
+      <div class="ramo" data-id="historia_ecuador" data-desbloquea="patrimonio_cultural">Historia del Ecuador</div>
+      <div class="ramo" data-id="ecologia_medio_ambiente" data-desbloquea="tecnicas_guiar,patrimonio_natural">Ecología y medio ambiente</div>
+      <div class="ramo" data-id="investigacion" data-desbloquea="">Investigación</div>
+      <div class="ramo" data-id="ingles_ii" data-desbloquea="ingles_iii">Inglés II</div>
+    </div>
+
+    <!-- Sigue así con los demás semestres -->
+    <!-- ... -->
+  </div>
+
   <script src="script.js"></script>
 </body>
-</html>
