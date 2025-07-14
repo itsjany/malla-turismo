@@ -11,7 +11,6 @@ h1 {
   color: #00695c;
 }
 
-/* Contenedor principal que organiza semestres en filas y columnas */
 #malla {
   display: flex;
   flex-wrap: wrap;
@@ -19,13 +18,12 @@ h1 {
   justify-content: center;
 }
 
-/* Cada semestre es una tarjeta */
 .semestre {
   background-color: #b2dfdb;
   border-radius: 10px;
   box-shadow: 0 0 8px #004d40aa;
   padding: 15px;
-  width: 250px; /* ancho fijo para columnas */
+  width: 250px;
   min-height: 350px;
   display: flex;
   flex-direction: column;
