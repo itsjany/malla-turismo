@@ -1,7 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malla Curricular Turismo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 <body>
   <h1>Malla Curricular Turismo</h1>
   <div id="malla">
-    <!-- Cada semestre será un "bloque" -->
     <div class="semestre" id="semestre1">
       <h2>1er Semestre</h2>
       <div class="ramo" data-id="matematica_financiera" data-desbloquea="estadistica_descriptiva,economia_turismo">Matemáticas financiera</div>
@@ -20,9 +27,64 @@
       <div class="ramo" data-id="ingles_ii" data-desbloquea="ingles_iii">Inglés II</div>
     </div>
 
-    <!-- Sigue así con los demás semestres -->
-    <!-- ... -->
+    <div class="semestre" id="semestre3">
+      <h2>3er Semestre</h2>
+      <div class="ramo" data-id="estadistica_descriptiva" data-desbloquea="administracion_turistica">Estadística descriptiva</div>
+      <div class="ramo" data-id="economia_turismo" data-desbloquea="administracion_turistica">Economía del turismo</div>
+      <div class="ramo" data-id="patrimonio_cultural" data-desbloquea="etnografia_turistica_ecuador">Patrimonio cultural</div>
+      <div class="ramo" data-id="tecnicas_guiar" data-desbloquea="operaciones_turisticas">Técnicas de guiar</div>
+      <div class="ramo" data-id="ingles_iii" data-desbloquea="ingles_lv">Inglés III</div>
+    </div>
+
+    <div class="semestre" id="semestre4">
+      <h2>4to Semestre</h2>
+      <div class="ramo" data-id="administracion_turistica" data-desbloquea="direccion_hotelera,contabilidad_administrativa">Administración turística</div>
+      <div class="ramo" data-id="servicio_comunitario" data-desbloquea="">Servicio comunitario</div>
+      <div class="ramo" data-id="etnografia_turistica_ecuador" data-desbloquea="">Etnografía turística del Ecuador</div>
+      <div class="ramo" data-id="operacion_turistica" data-desbloquea="agencias_de_viajes">Operación turística</div>
+      <div class="ramo" data-id="patrimonio_natural" data-desbloquea="planificacion_territorial">Patrimonio natural</div>
+      <div class="ramo" data-id="ingles_lv" data-desbloquea="ingles_v">Inglés LV</div>
+    </div>
+
+    <div class="semestre" id="semestre5">
+      <h2>5to Semestre</h2>
+      <div class="ramo" data-id="direccion_hotelera" data-desbloquea="gestion_talento_humano">Dirección hotelera</div>
+      <div class="ramo" data-id="contabilidad_administrativa" data-desbloquea="gestion_alimentos_bebidas,emprendimiento_innovacion">Contabilidad administrativa</div>
+      <div class="ramo" data-id="agencias_de_viajes" data-desbloquea="industria_aerea,sistemas_reserva">Agencias de viajes</div>
+      <div class="ramo" data-id="planificacion_territorial" data-desbloquea="gestion_calidad_turistica">Planificación territorial</div>
+      <div class="ramo" data-id="ingles_v" data-desbloquea="ingles_vl">Inglés V</div>
+    </div>
+
+    <div class="semestre" id="semestre6">
+      <h2>6to Semestre</h2>
+      <div class="ramo" data-id="gestion_talento_humano" data-desbloquea="marketing_turistico">Gestión de talento humano</div>
+      <div class="ramo" data-id="gestion_alimentos_bebidas" data-desbloquea="">Gestión de alimentos y bebidas</div>
+      <div class="ramo" data-id="practica_laboral_1" data-desbloquea="practicas_laborales_2">Práctica laboral 1</div>
+      <div class="ramo" data-id="industria_aerea" data-desbloquea="">Industria aérea y sistemas de reserva</div>
+      <div class="ramo" data-id="gestion_calidad_turistica" data-desbloquea="">Gestión de la calidad turística</div>
+      <div class="ramo" data-id="ingles_vl" data-desbloquea="ingles_vii">Inglés VL</div>
+    </div>
+
+    <div class="semestre" id="semestre7">
+      <h2>7mo Semestre</h2>
+      <div class="ramo" data-id="marketing_turistico" data-desbloquea="tendencias_turisticas">Marketing turístico</div>
+      <div class="ramo" data-id="emprendimiento_innovacion" data-desbloquea="">Emprendimiento e innovación</div>
+      <div class="ramo" data-id="practicas_laborales_2" data-desbloquea="diseno_integracion_curricular">Prácticas laborales II</div>
+      <div class="ramo" data-id="gestion_destinos_turisticos" data-desbloquea="">Gestión de destinos turísticos</div>
+      <div class="ramo" data-id="turismo_sostenible" data-desbloquea="">Turismo sostenible</div>
+      <div class="ramo" data-id="ingles_vii" data-desbloquea="speaking_reporting_speeches">Inglés VII</div>
+    </div>
+
+    <div class="semestre" id="semestre8">
+      <h2>8vo Semestre</h2>
+      <div class="ramo" data-id="tendencias_turisticas" data-desbloquea="">Tendencias turísticas</div>
+      <div class="ramo" data-id="gestion_eventos_convenciones" data-desbloquea="">Gestión de eventos y convenciones</div>
+      <div class="ramo" data-id="diseno_integracion_curricular" data-desbloquea="">Diseño de integración curricular</div>
+      <div class="ramo" data-id="modalidades_turisticas" data-desbloquea="">Modalidades turísticas</div>
+      <div class="ramo" data-id="speaking_reporting_speeches" data-desbloquea="">Speaking and reporting speeches</div>
+    </div>
   </div>
 
   <script src="script.js"></script>
 </body>
+</html>
