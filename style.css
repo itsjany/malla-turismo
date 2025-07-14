@@ -1,0 +1,46 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #e6f5f1;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #2e7d6f;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.course {
+  background-color: #d1f2eb;
+  border-left: 6px solid #2e7d6f;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.2s, background-color 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.course.locked {
+  background-color: #e0e0e0;
+  border-color: #aaa;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.course:hover:not(.locked) {
+  transform: scale(1.03);
+  background-color: #b2dfdb;
+}
+
+.course.done {
+  background-color: #a5d6a7;
+  border-color: #388e3c;
+}
