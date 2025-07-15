@@ -1,90 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Malla Curricular Turismo</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Malla Curricular Turismo</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Malla Curricular Turismo</h1>
-  <div id="malla">
-    <div class="semestre" id="semestre1">
-      <h2>1er Semestre</h2>
-      <div class="ramo" data-id="matematica_financiera" data-prerequisitos="">Matemáticas financiera</div>
-      <div class="ramo" data-id="introduccion_turismo" data-prerequisitos="">Introducción al turismo</div>
-      <div class="ramo" data-id="geografia_turistica" data-prerequisitos="">Geografía turística</div>
-      <div class="ramo" data-id="lenguaje_comunicacion" data-prerequisitos="">Lenguaje y comunicación</div>
-      <div class="ramo" data-id="ingles_i" data-prerequisitos="">Inglés I</div>
-    </div>
+<h1>Malla Curricular Turismo</h1>
+<div id="malla">
 
-    <div class="semestre" id="semestre2">
-      <h2>2do Semestre</h2>
-      <div class="ramo" data-id="etiqueta_protocolo" data-prerequisitos="lenguaje_comunicacion">Etiqueta y protocolo para turismo y hotelería</div>
-      <div class="ramo" data-id="historia_ecuador" data-prerequisitos="introduccion_turismo">Historia del Ecuador</div>
-      <div class="ramo" data-id="ecologia_medio_ambiente" data-prerequisitos="geografia_turistica">Ecología y medio ambiente</div>
-      <div class="ramo" data-id="investigacion" data-prerequisitos="lenguaje_comunicacion">Investigación</div>
-      <div class="ramo" data-id="ingles_ii" data-prerequisitos="ingles_i">Inglés II</div>
-    </div>
-
-    <div class="semestre" id="semestre3">
-      <h2>3er Semestre</h2>
-      <div class="ramo" data-id="estadistica_descriptiva" data-prerequisitos="matematica_financiera">Estadística descriptiva</div>
-      <div class="ramo" data-id="economia_turismo" data-prerequisitos="matematica_financiera">Economía del turismo</div>
-      <div class="ramo" data-id="patrimonio_cultural" data-prerequisitos="historia_ecuador">Patrimonio cultural</div>
-      <div class="ramo" data-id="tecnicas_guiar" data-prerequisitos="ecologia_medio_ambiente">Técnicas de guiar</div>
-      <div class="ramo" data-id="ingles_iii" data-prerequisitos="ingles_ii">Inglés III</div>
-    </div>
-
-    <div class="semestre" id="semestre4">
-      <h2>4to Semestre</h2>
-      <div class="ramo" data-id="administracion_turistica" data-prerequisitos="estadistica_descriptiva,economia_turismo">Administración turística</div>
-      <div class="ramo" data-id="servicio_comunitario" data-prerequisitos="">Servicio comunitario</div>
-      <div class="ramo" data-id="etnografia_turistica_ecuador" data-prerequisitos="patrimonio_cultural">Etnografía turística del Ecuador</div>
-      <div class="ramo" data-id="operacion_turistica" data-prerequisitos="tecnicas_guiar">Operación turística</div>
-      <div class="ramo" data-id="patrimonio_natural" data-prerequisitos="ecologia_medio_ambiente">Patrimonio natural</div>
-      <div class="ramo" data-id="ingles_lv" data-prerequisitos="ingles_iii">Inglés LV</div>
-    </div>
-
-    <div class="semestre" id="semestre5">
-      <h2>5to Semestre</h2>
-      <div class="ramo" data-id="direccion_hotelera" data-prerequisitos="administracion_turistica">Dirección hotelera</div>
-      <div class="ramo" data-id="contabilidad_administrativa" data-prerequisitos="administracion_turistica">Contabilidad administrativa</div>
-      <div class="ramo" data-id="agencias_de_viajes" data-prerequisitos="operacion_turistica">Agencias de viajes</div>
-      <div class="ramo" data-id="planificacion_territorial" data-prerequisitos="patrimonio_natural">Planificación territorial</div>
-      <div class="ramo" data-id="ingles_v" data-prerequisitos="ingles_lv">Inglés V</div>
-    </div>
-
-    <div class="semestre" id="semestre6">
-      <h2>6to Semestre</h2>
-      <div class="ramo" data-id="gestion_talento_humano" data-prerequisitos="direccion_hotelera">Gestión de talento humano</div>
-      <div class="ramo" data-id="gestion_alimentos_bebidas" data-prerequisitos="contabilidad_administrativa">Gestión de alimentos y bebidas</div>
-      <div class="ramo" data-id="practica_laboral_1" data-prerequisitos="">Práctica laboral 1</div>
-      <div class="ramo" data-id="industria_aerea" data-prerequisitos="agencias_de_viajes">Industria aérea y sistemas de reserva</div>
-      <div class="ramo" data-id="gestion_calidad_turistica" data-prerequisitos="planificacion_territorial">Gestión de la calidad turística</div>
-      <div class="ramo" data-id="ingles_vl" data-prerequisitos="ingles_v">Inglés VL</div>
-    </div>
-
-    <div class="semestre" id="semestre7">
-      <h2>7mo Semestre</h2>
-      <div class="ramo" data-id="marketing_turistico" data-prerequisitos="gestion_talento_humano">Marketing turístico</div>
-      <div class="ramo" data-id="emprendimiento_innovacion" data-prerequisitos="contabilidad_administrativa">Emprendimiento e innovación</div>
-      <div class="ramo" data-id="practicas_laborales_2" data-prerequisitos="practica_laboral_1">Prácticas laborales II</div>
-      <div class="ramo" data-id="gestion_destinos_turisticos" data-prerequisitos="">Gestión de destinos turísticos</div>
-      <div class="ramo" data-id="turismo_sostenible" data-prerequisitos="">Turismo sostenible</div>
-      <div class="ramo" data-id="ingles_vii" data-prerequisitos="ingles_vl">Inglés VII</div>
-    </div>
-
-    <div class="semestre" id="semestre8">
-      <h2>8vo Semestre</h2>
-      <div class="ramo" data-id="tendencias_turisticas" data-prerequisitos="marketing_turistico">Tendencias turísticas</div>
-      <div class="ramo" data-id="gestion_eventos_convenciones" data-prerequisitos="">Gestión de eventos y convenciones</div>
-      <div class="ramo" data-id="diseno_integracion_curricular" data-prerequisitos="practicas_laborales_2">Diseño de integración curricular</div>
-      <div class="ramo" data-id="modalidades_turisticas" data-prerequisitos="">Modalidades turísticas</div>
-      <div class="ramo" data-id="speaking_reporting_speeches" data-prerequisitos="ingles_vii">Speaking and reporting speeches</div>
-    </div>
+  <div class="semestre" id="semestre1">
+    <h2>1er Semestre</h2>
+    <div class="ramo" data-id="matematica_financiera" data-prerequisitos="">Matemáticas financiera</div>
+    <div class="ramo" data-id="introduccion_turismo" data-prerequisitos="">Introducción al turismo</div>
+    <div class="ramo" data-id="geografia_turistica" data-prerequisitos="">Geografía turística</div>
+    <div class="ramo" data-id="lenguaje_comunicacion" data-prerequisitos="">Lenguaje y comunicación</div>
+    <div class="ramo" data-id="ingles_i" data-prerequisitos="">Inglés I</div>
   </div>
 
-  <script src="script.js"></script>
+  <div class="semestre" id="semestre2">
+    <h2>2do Semestre</h2>
+    <div class="ramo" data-id="etiqueta_protocolo" data-prerequisitos="">Etiqueta y protocolo para turismo y hotelería</div>
+    <div class="ramo" data-id="historia_ecuador" data-prerequisitos="introduccion_turismo">Historia del Ecuador</div>
+    <div class="ramo" data-id="ecologia_medioambiente" data-prerequisitos="geografia_turistica">Ecología y medio ambiente</div>
+    <div class="ramo" data-id="investigacion" data-prerequisitos="lenguaje_comunicacion">Investigación</div>
+    <div class="ramo" data-id="ingles_ii" data-prerequisitos="ingles_i">Inglés II</div>
+  </div>
+
+  <div class="semestre" id="semestre3">
+    <h2>3er Semestre</h2>
+    <div class="ramo" data-id="estadistica_descriptiva" data-prerequisitos="matematica_financiera">Estadística descriptiva</div>
+    <div class="ramo" data-id="economia_turismo" data-prerequisitos="matematica_financiera">Economía del turismo</div>
+    <div class="ramo" data-id="patrimonio_cultural" data-prerequisitos="historia_ecuador">Patrimonio cultural</div>
+    <div class="ramo" data-id="tecnicas_guiar" data-prerequisitos="ecologia_medioambiente">Técnicas de guiar</div>
+    <div class="ramo" data-id="ingles_iii" data-prerequisitos="ingles_ii">Inglés III</div>
+  </div>
+
+  <div class="semestre" id="semestre4">
+    <h2>4to Semestre</h2>
+    <div class="ramo" data-id="administracion_turistica" data-prerequisitos="estadistica_descriptiva,economia_turismo">Administración turística</div>
+    <div class="ramo" data-id="servicio_comunitario" data-prerequisitos="">Servicio comunitario</div>
+    <div class="ramo" data-id="etnografia_turistica" data-prerequisitos="patrimonio_cultural">Etnografía turística del Ecuador</div>
+    <div class="ramo" data-id="operacion_turistica" data-prerequisitos="tecnicas_guiar">Operación turística</div>
+    <div class="ramo" data-id="patrimonio_natural" data-prerequisitos="ecologia_medioambiente">Patrimonio Natural</div>
+    <div class="ramo" data-id="ingles_iv" data-prerequisitos="ingles_iii">Inglés IV</div>
+  </div>
+
+  <div class="semestre" id="semestre5">
+    <h2>5to Semestre</h2>
+    <div class="ramo" data-id="direccion_hotelera" data-prerequisitos="administracion_turistica">Dirección hotelera</div>
+    <div class="ramo" data-id="contabilidad_administrativa" data-prerequisitos="administracion_turistica">Contabilidad administrativa</div>
+    <div class="ramo" data-id="agencias_viajes" data-prerequisitos="operacion_turistica">Agencias de viajes</div>
+    <div class="ramo" data-id="planificacion_territorial" data-prerequisitos="patrimonio_natural">Planificación territorial</div>
+    <div class="ramo" data-id="ingles_v" data-prerequisitos="ingles_iv">Inglés V</div>
+  </div>
+
+  <div class="semestre" id="semestre6">
+    <h2>6to Semestre</h2>
+    <div class="ramo" data-id="gestion_talento_humano" data-prerequisitos="direccion_hotelera">Gestión de talento humano</div>
+    <div class="ramo" data-id="gestion_alimentos_bebidas" data-prerequisitos="contabilidad_administrativa">Gestión de alimentos y bebidas</div>
+    <div class="ramo" data-id="practica_laboral_1" data-prerequisitos="">Práctica laboral I</div>
+    <div class="ramo" data-id="industria_aerea" data-prerequisitos="agencias_viajes">Industria aérea y sistemas de reserva</div>
+    <div class="ramo" data-id="gestion_calidad_turistica" data-prerequisitos="planificacion_territorial">Gestión de la calidad turística</div>
+    <div class="ramo" data-id="ingles_vi" data-prerequisitos="ingles_v">Inglés VI</div>
+  </div>
+
+  <div class="semestre" id="semestre7">
+    <h2>7mo Semestre</h2>
+    <div class="ramo" data-id="marketing_turistico" data-prerequisitos="gestion_talento_humano">Marketing turístico</div>
+    <div class="ramo" data-id="emprendimiento_innovacion" data-prerequisitos="contabilidad_administrativa">Emprendimiento e innovación</div>
+    <div class="ramo" data-id="practicas_laborales_2" data-prerequisitos="practica_laboral_1">Prácticas laborales II</div>
+    <div class="ramo" data-id="gestion_destinos_turisticos" data-prerequisitos="">Gestión de destinos turísticos</div>
+    <div class="ramo" data-id="turismo_sostenible" data-prerequisitos="">Turismo sostenible</div>
+    <div class="ramo" data-id="ingles_vii" data-prerequisitos="ingles_vi">Inglés VII</div>
+  </div>
+
+  <div class="semestre" id="semestre8">
+    <h2>8vo Semestre</h2>
+    <div class="ramo" data-id="tendencias_turisticas" data-prerequisitos="marketing_turistico">Tendencias turísticas</div>
+    <div class="ramo" data-id="gestion_eventos_convenciones" data-prerequisitos="">Gestión de eventos y convenciones</div>
+    <div class="ramo" data-id="diseno_integracion_curricular" data-prerequisitos="practicas_laborales_2">Diseño de integración curricular</div>
+    <div class="ramo" data-id="modalidades_turisticas" data-prerequisitos="">Modalidades turísticas</div>
+    <div class="ramo" data-id="speaking_reporting" data-prerequisitos="ingles_vii">Speaking and reporting speeches</div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
