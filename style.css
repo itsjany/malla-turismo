@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #e3f2fd;
+  background-color: #e0f2f1;
   color: #004d40;
   margin: 20px;
 }
@@ -8,7 +8,7 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 40px;
-  color: #00695c;
+  color: #00796b;
 }
 
 #malla {
@@ -19,41 +19,41 @@ h1 {
 }
 
 .semestre {
-  background-color: #b2dfdb;
+  background-color: #a7ffeb;
   border-radius: 10px;
   box-shadow: 0 0 8px #004d40aa;
   padding: 15px;
-  width: 250px;
-  min-height: 350px;
+  width: 280px;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
 }
 
 .semestre h2 {
-  background-color: #00796b;
+  background-color: #004d40;
   color: white;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 15px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .ramo {
-  background-color: #4db6ac;
+  background-color: #00796b;
   margin: 8px 0;
   padding: 12px 15px;
   border-radius: 8px;
   cursor: pointer;
   user-select: none;
   transition: background-color 0.3s ease;
-  box-shadow: 0 0 5px #004d40aa;
+  box-shadow: 0 0 5px #004d40cc;
   color: white;
   flex-shrink: 0;
 }
 
-.ramo:hover:not(.aprobado):not(.desbloqueado) {
-  background-color: #80cbc4;
+.ramo:hover:not(.aprobado):not(.bloqueado) {
+  background-color: #004d40;
 }
 
 .ramo.aprobado {
@@ -72,7 +72,4 @@ h1 {
   box-shadow: none;
 }
 
-.ramo.desbloqueado {
-  background-color: #00796b;
-  box-shadow: 0 0 8px #004d40;
-}
+.ramo.desblo
