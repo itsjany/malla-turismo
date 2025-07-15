@@ -72,4 +72,8 @@ h1 {
   box-shadow: none;
 }
 
-.ramo.desblo
+.ramo.desbloqueado {
+  background-color: #00796b;
+  cursor: pointer;
+  color: white;
+}
