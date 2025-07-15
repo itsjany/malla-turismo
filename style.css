@@ -61,17 +61,18 @@ h1 {
   color: #a5d6a7;
   text-decoration: line-through;
   cursor: default;
-  box-shadow: 0 0 10px #1b5e20;
+  box-shadow: none;
+}
+
+.ramo.bloqueado {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+  color: #37474f;
+  text-decoration: none;
+  box-shadow: none;
 }
 
 .ramo.desbloqueado {
   background-color: #00796b;
-}
-
-.ramo.bloqueado {
-  background-color: #cfd8dc;
-  color: #90a4ae;
-  cursor: not-allowed;
-  text-decoration: none;
-  box-shadow: none;
+  box-shadow: 0 0 8px #004d40;
 }
