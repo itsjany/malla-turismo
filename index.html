@@ -2,89 +2,209 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Malla Curricular Turismo</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Malla Curricular Turismo</h1>
-  <div class="malla">
-    <!-- Repite esto por cada semestre -->
-    <div class="semestre">
-      <h2>1er Semestre</h2>
-      <div class="materia">Matemáticas financiera</div>
-      <div class="materia">Introducción al turismo</div>
-      <div class="materia">Geografía turística</div>
-      <div class="materia">Lenguaje y comunicación</div>
-      <div class="materia">Inglés I</div>
-    </div>
+  <header>
+    <h1>Malla Curricular - Carrera de Turismo</h1>
+    <p>Haz clic en cada ramo para marcarlo como aprobado y desbloquear los siguientes.</p>
+  </header>
 
-    <div class="semestre">
-      <h2>2do Semestre</h2>
-      <div class="materia">Etiqueta y protocolo para turismo y hotelería</div>
-      <div class="materia">Historia del Ecuador</div>
-      <div class="materia">Ecología y medio ambiente</div>
-      <div class="materia">Investigación</div>
-      <div class="materia">Inglés II</div>
-    </div>
+  <main>
+    <div class="malla">
 
-    <div class="semestre">
-      <h2>3er Semestre</h2>
-      <div class="materia">Estadística descriptiva</div>
-      <div class="materia">Economía del turismo</div>
-      <div class="materia">Patrimonio cultural</div>
-      <div class="materia">Técnicas de guiar</div>
-      <div class="materia">Inglés III</div>
-    </div>
+      <!-- SEMESTRE 1 -->
+      <section class="semestre" id="semestre1">
+        <h2>1er Semestre</h2>
+        <div class="ramos">
+          <div class="ramo" data-nombre="Matemáticas financiera" data-desbloquea="Estadística descriptiva,Economía del turismo" data-prereq="">
+            Matemáticas financiera
+          </div>
+          <div class="ramo" data-nombre="Introducción al turismo" data-desbloquea="Historia del ecuador" data-prereq="">
+            Introducción al turismo
+          </div>
+          <div class="ramo" data-nombre="Geografía turística" data-desbloquea="Ecología y medio ambiente" data-prereq="">
+            Geografía turística
+          </div>
+          <div class="ramo" data-nombre="Lenguaje y comunicación" data-desbloquea="Investigación" data-prereq="">
+            Lenguaje y comunicación
+          </div>
+          <div class="ramo" data-nombre="Ingles l" data-desbloquea="Ingles ll" data-prereq="">
+            Ingles l
+          </div>
+        </div>
+      </section>
 
-    <div class="semestre">
-      <h2>4to Semestre</h2>
-      <div class="materia">Administración turística</div>
-      <div class="materia">Servicio comunitario</div>
-      <div class="materia">Etnografía turística del Ecuador</div>
-      <div class="materia">Operación turística</div>
-      <div class="materia">Patrimonio Natural</div>
-      <div class="materia">Inglés IV</div>
-    </div>
+      <!-- SEMESTRE 2 -->
+      <section class="semestre" id="semestre2">
+        <h2>2do Semestre</h2>
+        <div class="ramos">
+          <div class="ramo bloqueado" data-nombre="Etiqueta y protocolo para turismo hotelería" data-desbloquea="" data-prereq="">
+            Etiqueta y protocolo para turismo hotelería
+          </div>
+          <div class="ramo bloqueado" data-nombre="Historia del ecuador" data-desbloquea="Patrimonio cultural" data-prereq="Introducción al turismo">
+            Historia del ecuador
+          </div>
+          <div class="ramo bloqueado" data-nombre="Ecología y medio ambiente" data-desbloquea="Técnicas de guiar,Patrimonio natural" data-prereq="Geografía turística">
+            Ecología y medio ambiente
+          </div>
+          <div class="ramo bloqueado" data-nombre="Investigación" data-desbloquea="" data-prereq="Lenguaje y comunicación">
+            Investigación
+          </div>
+          <div class="ramo bloqueado" data-nombre="Ingles ll" data-desbloquea="Ingles lll" data-prereq="Ingles l">
+            Ingles ll
+          </div>
+        </div>
+      </section>
 
-    <div class="semestre">
-      <h2>5to Semestre</h2>
-      <div class="materia">Dirección hotelera</div>
-      <div class="materia">Contabilidad administrativa</div>
-      <div class="materia">Agencias de viajes</div>
-      <div class="materia">Planificación territorial</div>
-      <div class="materia">Inglés V</div>
-    </div>
+      <!-- SEMESTRE 3 -->
+      <section class="semestre" id="semestre3">
+        <h2>3er Semestre</h2>
+        <div class="ramos">
+          <div class="ramo bloqueado" data-nombre="Estadística descriptiva" data-desbloquea="Administración turística" data-prereq="Matemáticas financiera">
+            Estadística descriptiva
+          </div>
+          <div class="ramo bloqueado" data-nombre="Economía del turismo" data-desbloquea="Administración turística" data-prereq="Matemáticas financiera">
+            Economía del turismo
+          </div>
+          <div class="ramo bloqueado" data-nombre="Patrimonio cultural" data-desbloquea="Etnografía turística del ecuador" data-prereq="Historia del ecuador">
+            Patrimonio cultural
+          </div>
+          <div class="ramo bloqueado" data-nombre="Técnicas de guiar" data-desbloquea="Operación turística" data-prereq="Ecología y medio ambiente">
+            Técnicas de guiar
+          </div>
+          <div class="ramo bloqueado" data-nombre="Ingles lll" data-desbloquea="Ingles lv" data-prereq="Ingles ll">
+            Ingles lll
+          </div>
+        </div>
+      </section>
 
-    <div class="semestre">
-      <h2>6to Semestre</h2>
-      <div class="materia">Gestión de talento humano</div>
-      <div class="materia">Gestión de alimentos y bebidas</div>
-      <div class="materia">Práctica laboral I</div>
-      <div class="materia">Industria aérea</div>
-      <div class="materia">Gestión de la calidad turística</div>
-      <div class="materia">Inglés VI</div>
-    </div>
+      <!-- SEMESTRE 4 -->
+      <section class="semestre" id="semestre4">
+        <h2>4to Semestre</h2>
+        <div class="ramos">
+          <div class="ramo bloqueado" data-nombre="Administración turística" data-desbloquea="Dirección hotelera,Contabilidad administrativa" data-prereq="Estadística descriptiva,Economía del turismo">
+            Administración turística
+          </div>
+          <div class="ramo bloqueado" data-nombre="Servicio comunitario" data-desbloquea="" data-prereq="">
+            Servicio comunitario
+          </div>
+          <div class="ramo bloqueado" data-nombre="Etnografía turística del ecuador" data-desbloquea="" data-prereq="Patrimonio cultural">
+            Etnografía turística del ecuador
+          </div>
+          <div class="ramo bloqueado" data-nombre="Operación turística" data-desbloquea="Agencias de viajes" data-prereq="Técnicas de guiar">
+            Operación turística
+          </div>
+          <div class="ramo bloqueado" data-nombre="Patrimonio Natural" data-desbloquea="Planificación territorial" data-prereq="Ecología y medio ambiente">
+            Patrimonio Natural
+          </div>
+          <div class="ramo bloqueado" data-nombre="Ingles lv" data-desbloquea="Ingles v" data-prereq="Ingles lll">
+            Ingles lv
+          </div>
+        </div>
+      </section>
 
-    <div class="semestre">
-      <h2>7mo Semestre</h2>
-      <div class="materia">Marketing turístico</div>
-      <div class="materia">Emprendimiento e innovación</div>
-      <div class="materia">Prácticas laborales II</div>
-      <div class="materia">Gestión de destinos turísticos</div>
-      <div class="materia">Turismo sostenible</div>
-      <div class="materia">Inglés VII</div>
-    </div>
+      <!-- SEMESTRE 5 -->
+      <section class="semestre" id="semestre5">
+        <h2>5to Semestre</h2>
+        <div class="ramos">
+          <div class="ramo bloqueado" data-nombre="Dirección hotelera" data-desbloquea="Gestión del talento humano" data-prereq="Administración turística">
+            Dirección hotelera
+          </div>
+          <div class="ramo bloqueado" data-nombre="Contabilidad administrativa" data-desbloquea="Gestión de alimentos y bebidas,Emprendimiento e innovación" data-prereq="Administración turística">
+            Contabilidad administrativa
+          </div>
+          <div class="ramo bloqueado" data-nombre="Agencias de viajes" data-desbloquea="Industria aérea,sistemas de reserva" data-prereq="Operación turística">
+            Agencias de viajes
+          </div>
+          <div class="ramo bloqueado" data-nombre="Planificación territorial" data-desbloquea="Gestión de la calidad turística" data-prereq="Patrimonio Natural">
+            Planificación territorial
+          </div>
+          <div class="ramo bloqueado" data-nombre="Ingles v" data-desbloquea="Ingles vl" data-prereq="Ingles lv">
+            Ingles v
+          </div>
+        </div>
+      </section>
 
-    <div class="semestre">
-      <h2>8vo Semestre</h2>
-      <div class="materia">Tendencias turísticas</div>
-      <div class="materia">Gestión de eventos y convenciones</div>
-      <div class="materia">Diseño de integración curricular</div>
-      <div class="materia">Modalidades turísticas</div>
-      <div class="materia">Speaking and reporting speeches</div>
+      <!-- SEMESTRE 6 -->
+      <section class="semestre" id="semestre6">
+        <h2>6to Semestre</h2>
+        <div class="ramos">
+          <div class="ramo bloqueado" data-nombre="Gestión de talento humano" data-desbloquea="Marketing turístico" data-prereq="Dirección hotelera">
+            Gestión de talento humano
+          </div>
+          <div class="ramo bloqueado" data-nombre="Gestión de alimentos y bebidas" data-desbloquea="" data-prereq="Contabilidad administrativa">
+            Gestión de alimentos y bebidas
+          </div>
+          <div class="ramo bloqueado" data-nombre="Practica laboral 1" data-desbloquea="Practicas laborales ll" data-prereq="">
+            Practica laboral 1
+          </div>
+          <div class="ramo bloqueado" data-nombre="Industria aérea" data-desbloquea="" data-prereq="Agencias de viajes">
+            Industria aérea
+          </div>
+          <div class="ramo bloqueado" data-nombre="Sistemas de reserva" data-desbloquea="" data-prereq="Agencias de viajes">
+            Sistemas de reserva
+          </div>
+          <div class="ramo bloqueado" data-nombre="Gestión de la calidad turística" data-desbloquea="" data-prereq="Planificación territorial">
+            Gestión de la calidad turística
+          </div>
+          <div class="ramo bloqueado" data-nombre="Ingles vl" data-desbloquea="Ingles VII" data-prereq="Ingles v">
+            Ingles vl
+          </div>
+        </div>
+      </section>
+
+      <!-- SEMESTRE 7 -->
+      <section class="semestre" id="semestre7">
+        <h2>7mo Semestre</h2>
+        <div class="ramos">
+          <div class="ramo bloqueado" data-nombre="Marketing turístico" data-desbloquea="Tendencias turísticas" data-prereq="Gestión de talento humano">
+            Marketing turístico
+          </div>
+          <div class="ramo bloqueado" data-nombre="Emprendimiento e innovación" data-desbloquea="" data-prereq="Contabilidad administrativa">
+            Emprendimiento e innovación
+          </div>
+          <div class="ramo bloqueado" data-nombre="Practicas laborales ll" data-desbloquea="Diseño de integración curricular" data-prereq="Practica laboral 1">
+            Practicas laborales ll
+          </div>
+          <div class="ramo bloqueado" data-nombre="Gestión de destinos turísticos" data-desbloquea="" data-prereq="">
+            Gestión de destinos turísticos
+          </div>
+          <div class="ramo bloqueado" data-nombre="Turismo sostenible" data-desbloquea="" data-prereq="">
+            Turismo sostenible
+          </div>
+          <div class="ramo bloqueado" data-nombre="Ingles VII" data-desbloquea="Speaking and reporting speeches" data-prereq="Ingles vl">
+            Ingles VII
+          </div>
+        </div>
+      </section>
+
+      <!-- SEMESTRE 8 -->
+      <section class="semestre" id="semestre8">
+        <h2>8vo Semestre</h2>
+        <div class="ramos">
+          <div class="ramo bloqueado" data-nombre="Tendencias turísticas" data-desbloquea="" data-prereq="Marketing turístico">
+            Tendencias turísticas
+          </div>
+          <div class="ramo bloqueado" data-nombre="Gestión de eventos y convenciones" data-desbloquea="" data-prereq="">
+            Gestión de eventos y convenciones
+          </div>
+          <div class="ramo bloqueado" data-nombre="Diseño de integración curricular" data-desbloquea="" data-prereq="Practicas laborales ll">
+            Diseño de integración curricular
+          </div>
+          <div class="ramo bloqueado" data-nombre="Modalidades turísticas" data-desbloquea="" data-prereq="">
+            Modalidades turísticas
+          </div>
+          <div class="ramo bloqueado" data-nombre="Speaking and reporting speeches" data-desbloquea="" data-prereq="Ingles VII">
+            Speaking and reporting speeches
+          </div>
+        </div>
+      </section>
+
     </div>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
