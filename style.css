@@ -1,56 +1,59 @@
 body {
-  background-color: #e6f0ea;
   font-family: Arial, sans-serif;
-  padding: 20px;
-  text-align: center;
+  background-color: #e6f2f1; /* menta suave */
+  color: #333;
+  margin: 20px;
 }
 
 h1 {
+  text-align: center;
+  color: #3a7d7d; /* menta oscura */
   margin-bottom: 30px;
-  color: #356859; /* menta oscuro */
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columnas para ejemplo */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
   max-width: 900px;
   margin: 0 auto;
 }
 
 .ramo {
-  background-color: #a3d9c1; /* menta claro */
-  border-radius: 10px;
-  padding: 15px 10px;
-  font-weight: 600;
+  background-color: #c8e6e5; /* menta claro */
+  border: 2px solid #a2d5c6;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
   cursor: pointer;
-  border: 3px solid transparent;
   user-select: none;
-  color: #1a3a2e;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: background-color 0.3s, border-color 0.3s;
+  box-shadow: 0 2px 4px rgba(58, 125, 125, 0.2);
+  font-weight: 600;
 }
 
-.ramo:hover:not(.bloqueado):not(.seleccionado) {
-  background-color: #8acfb6; /* menta un poco más oscuro */
-}
-
-.ramo.seleccionado {
-  background-color: #cbb9ff; /* lila */
-  border-color: #7a5ee6; /* lila oscuro */
-  color: #3e2465;
-  font-weight: 700;
-}
-
+/* Cuando está bloqueado */
 .ramo.bloqueado {
-  background-color: #b0dff5; /* celeste pálido */
-  border-color: #6ea8d7;
-  color: #4b6e86;
+  background-color: #d6c9e3; /* lila claro */
+  border-color: #aa99c6;
+  color: #7a6f9a;
   cursor: not-allowed;
-  text-decoration: line-through;
-  font-style: italic;
+  box-shadow: none;
 }
 
+/* Cuando está desbloqueado y no aprobado */
+.ramo.desbloqueado {
+  background-color: #c8e6e5; /* menta claro */
+  border-color: #3a7d7d;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Cuando está aprobado */
+.ramo.aprobado {
+  background-color: #a9d6c9; /* menta medio */
+  border-color: #3a7d7d;
+  color: #114b43;
+  font-weight: 700;
+  box-shadow: 0 0 10px #50c878;
+}
