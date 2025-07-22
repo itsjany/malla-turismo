@@ -1,94 +1,79 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const ramos = document.querySelectorAll(".ramo");
 
-  // Convertir nombre a formato "clave" para comparar
-  function claveNombre(nombre) {
-    return nombre.toLowerCase().trim();
-  }
+  // Convertir texto a clave sencilla (minúscula y sin espacios extras)
+  const clave = (texto) => texto.toLowerCase().trim();
 
-  // Map para saber si un ramo está seleccionado
-  const seleccionados = new Map();
+  // Map para saber qué materias están seleccionadas/aprobadas
+  const aprobados = new Map();
 
-  // Inicializar: bloquear materias con prerequisito no cumplido
-  function inicializarEstado() {
+  // Inicializar materias: bloquear si tiene prerequisito no cumplido
+  function inicializar() {
     ramos.forEach(ramo => {
-      const prereqRaw = ramo.dataset.prereq.trim();
-      if (prereqRaw === "") {
-        // Sin prerequisitos => desbloqueado
+      const prereq = ramo.dataset.prereq.trim();
+      const nombre = clave(ramo.dataset.nombre);
+      aprobados.set(nombre, false);
+
+      if (prereq === "") {
         ramo.classList.remove("bloqueado");
-        seleccionados.set(claveNombre(ramo.dataset.nombre), false);
       } else {
-        // Verificar prerequisitos separados por coma
-        const prereqs = prereqRaw.split(",").map(s => claveNombre(s));
-        // Si todos prereqs están desbloqueados (es decir, sin prereq o ya seleccionados), desbloquear
-        // Al inicio nadie está seleccionado, así que solo si prereq vacío está desbloqueado
-        // Al principio bloquear si hay prereq
         ramo.classList.add("bloqueado");
-        seleccionados.set(claveNombre(ramo.dataset.nombre), false);
       }
     });
   }
 
-  // Actualizar estado de desbloqueo según selección
-  function actualizarEstado() {
+  // Actualizar estados de desbloqueo según materias aprobadas
+  function actualizarDesbloqueo() {
     ramos.forEach(ramo => {
-      const nombre = claveNombre(ramo.dataset.nombre);
+      const nombre = clave(ramo.dataset.nombre);
       const prereqRaw = ramo.dataset.prereq.trim();
 
       if (prereqRaw === "") {
-        // Sin prereq, desbloqueado siempre
-        if (seleccionados.get(nombre) === false) {
-          ramo.classList.remove("bloqueado");
-        }
+        // Sin prerequisito, siempre desbloqueado
+        if (!aprobados.get(nombre)) ramo.classList.remove("bloqueado");
         return;
       }
 
-      // Prerequisitos separados
-      const prereqs = prereqRaw.split(",").map(s => claveNombre(s));
-      // Si todos los prereq están seleccionados, desbloqueamos
-      const todosCumplen = prereqs.every(p => seleccionados.get(p) === true);
+      const prereqs = prereqRaw.split(",").map(clave);
 
-      if (todosCumplen) {
-        // Desbloquear
+      // Verificar si todos los prerequisitos están aprobados
+      const todosAprobados = prereqs.every(p => aprobados.get(p) === true);
+
+      if (todosAprobados) {
         ramo.classList.remove("bloqueado");
       } else {
-        // Bloquear y deseleccionar si estaba seleccionado
         ramo.classList.add("bloqueado");
-        if (seleccionados.get(nombre) === true) {
-          seleccionados.set(nombre, false);
+        // Si estaba seleccionado, quitar selección porque no cumple prereqs
+        if (aprobados.get(nombre)) {
+          aprobados.set(nombre, false);
           ramo.classList.remove("seleccionado");
         }
       }
     });
   }
 
-  // Click en ramo
+  // Al hacer click en materia
   ramos.forEach(ramo => {
     ramo.addEventListener("click", () => {
       if (ramo.classList.contains("bloqueado")) {
-        alert("Esta materia está bloqueada. Debes aprobar las prerrequisitos primero.");
+        alert("Esta materia está bloqueada. Debes aprobar sus prerrequisitos primero.");
         return;
       }
-      const nombre = claveNombre(ramo.dataset.nombre);
-      const estaSeleccionado = seleccionados.get(nombre);
+      const nombre = clave(ramo.dataset.nombre);
 
-      if (estaSeleccionado) {
-        // Deseleccionar
-        seleccionados.set(nombre, false);
+      if (aprobados.get(nombre)) {
+        aprobados.set(nombre, false);
         ramo.classList.remove("seleccionado");
       } else {
-        // Seleccionar
-        seleccionados.set(nombre, true);
+        aprobados.set(nombre, true);
         ramo.classList.add("seleccionado");
       }
-      // Actualizar bloqueos según selección
-      actualizarEstado();
+
+      actualizarDesbloqueo();
     });
   });
 
-  // Ejecutar inicialización
-  inicializarEstado();
-  actualizarEstado();
+  // Ejecutar inicialización y actualización al cargar
+  inicializar();
+  actualizarDesbloqueo();
 });
