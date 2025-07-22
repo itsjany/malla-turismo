@@ -1,67 +1,101 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f7fbf9;
+/* Reset básico */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f9f7;
   padding: 20px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
-  text-align: center;
-  color: #3b8d84;
+  margin-bottom: 20px;
+  color: #2f8f7f; /* menta oscuro */
 }
 
-.semestres {
+/* Contenedor malla */
+#malla-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 15px;
   justify-content: center;
-  gap: 16px;
+  width: 100%;
+  max-width: 1200px;
 }
 
+/* Semestres */
 .semestre {
-  background-color: #e0f7f4;
-  border: 2px solid #bce3de;
+  background: #e0f2f1; /* menta claro */
   border-radius: 10px;
-  padding: 16px;
+  padding: 15px;
+  flex: 1 1 250px;
   min-width: 250px;
-  flex: 1 1 300px;
+  box-shadow: 0 0 8px rgba(47, 143, 127, 0.3);
+  display: flex;
+  flex-direction: column;
 }
 
 .semestre h2 {
+  color: #379683; /* menta */
+  margin-bottom: 10px;
   text-align: center;
-  color: #54c5b4;
 }
 
+/* Botones materias */
 .materia {
-  display: block;
-  background: #ffe3f2;
-  color: #333;
-  border: none;
-  border-radius: 6px;
+  background-color: #fce4ec; /* rosado pálido */
+  border: 2px solid #f8bbd0; /* borde rosado */
+  color: #6a1b4d; /* texto rosado oscuro */
   padding: 10px;
-  margin: 6px 0;
-  width: 100%;
+  margin-bottom: 8px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
-  text-align: left;
+  transition: background-color 0.3s, border-color 0.3s, text-decoration 0.3s;
+  text-align: center;
+  font-weight: 600;
+  user-select: none;
 }
 
-.materia:hover {
-  background: #fdd6ec;
+/* Hover en materias desbloqueadas */
+.materia:not(.bloqueada):hover {
+  background-color: #d1c4e9; /* celeste pálido */
+  border-color: #7986cb;
+  color: #283593;
 }
 
+/* Materias bloqueadas */
 .materia.bloqueada {
-  background: #e0e0e0;
-  color: #888;
+  background-color: #f3e5f5; /* más pálido rosado */
+  border-color: #ce93d8;
+  color: #a1887f;
   cursor: not-allowed;
-}
-
-.materia.aprobada {
-  background: #c3e6cb;
   text-decoration: line-through;
 }
 
-@media (max-width: 600px) {
+/* Materias aprobadas */
+.materia.aprobada {
+  background-color: #b3e5fc; /* celeste claro */
+  border-color: #039be5;
+  color: #01579b;
+  text-decoration: line-through;
+  font-weight: 700;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 700px) {
+  #malla-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
   .semestre {
-    flex: 1 1 100%;
+    min-width: 90%;
   }
 }
