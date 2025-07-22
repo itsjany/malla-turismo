@@ -1,79 +1,67 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const ramos = document.querySelectorAll(".ramo");
+const cursos = [
+  { id: "matematicas", name: "Matemáticas Financiera", requires: [], opens: ["estadistica", "economia"] },
+  { id: "turismo", name: "Introducción al Turismo", requires: [], opens: ["historia"] },
+  { id: "geografia", name: "Geografía Turística", requires: [], opens: ["ecologia"] },
+  { id: "lenguaje", name: "Lenguaje y Comunicación", requires: [], opens: ["investigacion"] },
+  { id: "ingles1", name: "Inglés I", requires: [], opens: ["ingles2"] },
+  { id: "etiqueta", name: "Etiqueta y Protocolo", requires: [], opens: [] },
+  { id: "historia", name: "Historia del Ecuador", requires: ["turismo"], opens: ["patrimonio"] },
+  { id: "ecologia", name: "Ecología y Medio Ambiente", requires: ["geografia"], opens: ["guiar", "natural"] },
+  { id: "investigacion", name: "Investigación", requires: ["lenguaje"], opens: [] },
+  { id: "ingles2", name: "Inglés II", requires: ["ingles1"], opens: ["ingles3"] },
+  { id: "estadistica", name: "Estadística Descriptiva", requires: ["matematicas"], opens: ["administracion"] },
+  { id: "economia", name: "Economía del Turismo", requires: ["matematicas"], opens: ["administracion"] },
+  { id: "patrimonio", name: "Patrimonio Cultural", requires: ["historia"], opens: ["etnografia"] },
+  { id: "guiar", name: "Técnicas de Guiar", requires: ["ecologia"], opens: ["operaciones"] },
+  { id: "ingles3", name: "Inglés III", requires: ["ingles2"], opens: ["ingles4"] },
+  { id: "administracion", name: "Administración Turística", requires: ["estadistica", "economia"], opens: ["direccion", "contabilidad"] },
+  { id: "servicio", name: "Servicio Comunitario", requires: [], opens: [] },
+  { id: "etnografia", name: "Etnografía Turística", requires: ["patrimonio"], opens: [] },
+  { id: "operaciones", name: "Operaciones Turísticas", requires: ["guiar"], opens: ["agencias"] },
+  { id: "natural", name: "Patrimonio Natural", requires: ["ecologia"], opens: ["planificacion"] },
+  { id: "ingles4", name: "Inglés IV", requires: ["ingles3"], opens: ["ingles5"] },
+  { id: "direccion", name: "Dirección Hotelera", requires: ["administracion"], opens: ["talento"] },
+  { id: "contabilidad", name: "Contabilidad Administrativa", requires: ["administracion"], opens: ["alimentos", "emprendimiento"] },
+  { id: "agencias", name: "Agencias de Viajes", requires: ["operaciones"], opens: ["industria"] },
+  { id: "planificacion", name: "Planificación Territorial", requires: ["natural"], opens: ["calidad"] },
+  { id: "ingles5", name: "Inglés V", requires: ["ingles4"], opens: ["ingles6"] },
+  { id: "talento", name: "Gestión del Talento Humano", requires: ["direccion"], opens: ["marketing"] },
+  { id: "alimentos", name: "Gestión de Alimentos y Bebidas", requires: ["contabilidad"], opens: [] },
+  { id: "practica1", name: "Práctica Laboral I", requires: [], opens: ["practica2"] },
+  { id: "industria", name: "Industria Aérea y Sistemas de Reserva", requires: ["agencias"], opens: [] },
+  { id: "calidad", name: "Gestión de la Calidad Turística", requires: ["planificacion"], opens: [] },
+  { id: "ingles6", name: "Inglés VI", requires: ["ingles5"], opens: ["ingles7"] },
+  { id: "marketing", name: "Marketing Turístico", requires: ["talento"], opens: ["tendencias"] },
+  { id: "emprendimiento", name: "Emprendimiento e Innovación", requires: ["contabilidad"], opens: [] },
+  { id: "practica2", name: "Prácticas Laborales II", requires: ["practica1"], opens: ["diseno"] },
+  { id: "destinos", name: "Gestión de Destinos Turísticos", requires: [], opens: [] },
+  { id: "sostenible", name: "Turismo Sostenible", requires: [], opens: [] },
+  { id: "ingles7", name: "Inglés VII", requires: ["ingles6"], opens: ["speaking"] },
+  { id: "tendencias", name: "Tendencias Turísticas", requires: ["marketing"], opens: [] },
+  { id: "eventos", name: "Gestión de Eventos y Convenciones", requires: [], opens: [] },
+  { id: "diseno", name: "Diseño de Integración Curricular", requires: ["practica2"], opens: [] },
+  { id: "modalidades", name: "Modalidades Turísticas", requires: [], opens: [] },
+  { id: "speaking", name: "Speaking and Reporting Speeches", requires: ["ingles7"], opens: [] }
+];
 
-  // Convertir texto a clave sencilla (minúscula y sin espacios extras)
-  const clave = (texto) => texto.toLowerCase().trim();
+const aprobados = new Set();
 
-  // Map para saber qué materias están seleccionadas/aprobadas
-  const aprobados = new Map();
-
-  // Inicializar materias: bloquear si tiene prerequisito no cumplido
-  function inicializar() {
-    ramos.forEach(ramo => {
-      const prereq = ramo.dataset.prereq.trim();
-      const nombre = clave(ramo.dataset.nombre);
-      aprobados.set(nombre, false);
-
-      if (prereq === "") {
-        ramo.classList.remove("bloqueado");
-      } else {
-        ramo.classList.add("bloqueado");
-      }
-    });
-  }
-
-  // Actualizar estados de desbloqueo según materias aprobadas
-  function actualizarDesbloqueo() {
-    ramos.forEach(ramo => {
-      const nombre = clave(ramo.dataset.nombre);
-      const prereqRaw = ramo.dataset.prereq.trim();
-
-      if (prereqRaw === "") {
-        // Sin prerequisito, siempre desbloqueado
-        if (!aprobados.get(nombre)) ramo.classList.remove("bloqueado");
-        return;
-      }
-
-      const prereqs = prereqRaw.split(",").map(clave);
-
-      // Verificar si todos los prerequisitos están aprobados
-      const todosAprobados = prereqs.every(p => aprobados.get(p) === true);
-
-      if (todosAprobados) {
-        ramo.classList.remove("bloqueado");
-      } else {
-        ramo.classList.add("bloqueado");
-        // Si estaba seleccionado, quitar selección porque no cumple prereqs
-        if (aprobados.get(nombre)) {
-          aprobados.set(nombre, false);
-          ramo.classList.remove("seleccionado");
-        }
-      }
-    });
-  }
-
-  // Al hacer click en materia
-  ramos.forEach(ramo => {
-    ramo.addEventListener("click", () => {
-      if (ramo.classList.contains("bloqueado")) {
-        alert("Esta materia está bloqueada. Debes aprobar sus prerrequisitos primero.");
-        return;
-      }
-      const nombre = clave(ramo.dataset.nombre);
-
-      if (aprobados.get(nombre)) {
-        aprobados.set(nombre, false);
-        ramo.classList.remove("seleccionado");
-      } else {
-        aprobados.set(nombre, true);
-        ramo.classList.add("seleccionado");
-      }
-
-      actualizarDesbloqueo();
-    });
+function renderCursos() {
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  cursos.forEach(curso => {
+    const habilitado = curso.requires.every(id => aprobados.has(id));
+    const div = document.createElement("div");
+    div.className = "course" + (aprobados.has(curso.id) ? " done" : habilitado ? "" : " locked");
+    div.textContent = curso.name;
+    div.onclick = () => {
+      if (!habilitado || aprobados.has(curso.id)) return;
+      aprobados.add(curso.id);
+      renderCursos();
+    };
+    grid.appendChild(div);
   });
+}
 
-  // Ejecutar inicialización y actualización al cargar
-  inicializar();
-  actualizarDesbloqueo();
-});
+renderCursos();
+
