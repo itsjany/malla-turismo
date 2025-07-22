@@ -1,42 +1,58 @@
-// Espera a que cargue todo el DOM
-document.addEventListener('DOMContentLoaded', () => {
-  // Selecciona todos los ramos
-  const ramos = document.querySelectorAll('.ramo');
 
-  // Inicialmente bloqueamos ramos que tienen prerrequisitos
-  ramos.forEach(ramo => {
-    const prereq = ramo.dataset.prerequisitos;
-    if (prereq && prereq.trim() !== '') {
-      ramo.classList.add('bloqueado');
-    }
-  });
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fefefe;
+    margin: 0;
+    padding: 20px;
+}
 
-  // Cuando clickeamos un ramo desbloqueamos los que dependen de él
-  ramos.forEach(ramo => {
-    ramo.addEventListener('click', () => {
-      // Si el ramo está bloqueado, no hacer nada
-      if (ramo.classList.contains('bloqueado')) return;
+h1 {
+    text-align: center;
+    color: #77ddbb;
+}
 
-      // Si ya está aprobado, tampoco
-      if (ramo.classList.contains('aprobado')) return;
+.semestres {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
 
-      // Marcar como aprobado
-      ramo.classList.add('aprobado');
+.semestre {
+    background-color: #e0f7f5;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
 
-      // Recorremos todos los ramos para ver si podemos desbloquear alguno
-      ramos.forEach(r => {
-        if (r.classList.contains('bloqueado')) {
-          const prereq = r.dataset.prerequisitos.split(',').map(x => x.trim());
-          // Revisar si TODOS los prerequisitos están aprobados
-          const allApproved = prereq.every(id => {
-            return document.querySelector(`.ramo[data-id="${id}"]`).classList.contains('aprobado');
-          });
-          if (allApproved) {
-            r.classList.remove('bloqueado');
-            r.classList.add('desbloqueado');
-          }
-        }
-      });
-    });
-  });
-});
+.semestre h2 {
+    color: #6cb6ff;
+}
+
+.materia {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #fcdde8;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.materia:hover {
+    background-color: #ffe3ef;
+}
+
+.materia.aprobada {
+    background-color: #b2f2bb;
+    color: #155724;
+}
+
+.materia.bloqueada {
+    background-color: #d6d8db;
+    color: #999;
+    cursor: not-allowed;
+}
