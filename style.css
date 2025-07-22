@@ -1,155 +1,56 @@
-/* styles.css */
-
 body {
-  background-color: #e6f0ea; /* menta suave */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 20px;
+  background-color: #e6f0ea;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
 }
 
 h1 {
-  text-align: center;
   margin-bottom: 30px;
-  font-weight: 700;
-  color: #333;
+  color: #356859; /* menta oscuro */
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas para ejemplo */
   gap: 15px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .ramo {
-  padding: 15px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-align: center;
-  cursor: pointer;
-  user-select: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border: 2px solid transparent;
-  color: #2c2c2c;
-}
-
-/* Colores por semestre */
-
-.semestre1 {
   background-color: #a3d9c1; /* menta claro */
-  color: #004d40;
-}
-.semestre1:hover {
-  background-color: #66b199; /* menta oscuro */
-  color: #e0e0e0;
-  border-color: #4a7a6f;
-}
-
-.semestre2 {
-  background-color: #c8b5e3; /* lila claro */
-  color: #3e2f5b;
-}
-.semestre2:hover {
-  background-color: #8a70b8; /* lila oscuro */
-  color: #f0eaff;
-  border-color: #6c5295;
+  border-radius: 10px;
+  padding: 15px 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 3px solid transparent;
+  user-select: none;
+  color: #1a3a2e;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.semestre3 {
-  background-color: #b7d7e8; /* celeste claro */
-  color: #2a4d6d;
+.ramo:hover:not(.bloqueado):not(.seleccionado) {
+  background-color: #8acfb6; /* menta un poco más oscuro */
 }
-.semestre3:hover {
-  background-color: #5b91b3; /* celeste oscuro */
-  color: #eaf5fb;
-  border-color: #40687f;
-}
-
-.semestre4 {
-  background-color: #a3d9c1;
-  color: #004d40;
-}
-.semestre4:hover {
-  background-color: #66b199;
-  color: #e0e0e0;
-  border-color: #4a7a6f;
-}
-
-.semestre5 {
-  background-color: #c8b5e3;
-  color: #3e2f5b;
-}
-.semestre5:hover {
-  background-color: #8a70b8;
-  color: #f0eaff;
-  border-color: #6c5295;
-}
-
-.semestre6 {
-  background-color: #b7d7e8;
-  color: #2a4d6d;
-}
-.semestre6:hover {
-  background-color: #5b91b3;
-  color: #eaf5fb;
-  border-color: #40687f;
-}
-
-.semestre7 {
-  background-color: #a3d9c1;
-  color: #004d40;
-}
-.semestre7:hover {
-  background-color: #66b199;
-  color: #e0e0e0;
-  border-color: #4a7a6f;
-}
-
-.semestre8 {
-  background-color: #c8b5e3;
-  color: #3e2f5b;
-}
-.semestre8:hover {
-  background-color: #8a70b8;
-  color: #f0eaff;
-  border-color: #6c5295;
-}
-
-/* Estado bloqueado */
-
-.ramo.bloqueado {
-  background-color: #dcdcdc;
-  color: #888;
-  cursor: not-allowed;
-  border-color: #bbb;
-  text-decoration: line-through;
-}
-
-/* Estado seleccionado */
 
 .ramo.seleccionado {
-  border-color: #ff7043;
-  background-color: #ffccbc !important;
-  color: #6d2600 !important;
+  background-color: #cbb9ff; /* lila */
+  border-color: #7a5ee6; /* lila oscuro */
+  color: #3e2465;
   font-weight: 700;
 }
 
-/* Tooltip (para indicar prerequisitos) */
-
-.ramo[data-prereq]:hover:not(.bloqueado)::after {
-  content: attr(data-prereq);
-  position: absolute;
-  background: rgba(0,0,0,0.7);
-  color: white;
-  font-size: 0.75rem;
-  padding: 3px 8px;
-  border-radius: 5px;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  margin-top: 6px;
-  pointer-events: none;
-  z-index: 10;
+.ramo.bloqueado {
+  background-color: #b0dff5; /* celeste pálido */
+  border-color: #6ea8d7;
+  color: #4b6e86;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  font-style: italic;
 }
+
