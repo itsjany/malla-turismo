@@ -1,58 +1,67 @@
-
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #fefefe;
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f7fbf9;
+  margin: 0;
+  padding: 20px;
 }
 
 h1 {
-    text-align: center;
-    color: #77ddbb;
+  text-align: center;
+  color: #3b8d84;
 }
 
 .semestres {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
 }
 
 .semestre {
-    background-color: #e0f7f5;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
+  background-color: #e0f7f4;
+  border: 2px solid #bce3de;
+  border-radius: 10px;
+  padding: 16px;
+  min-width: 250px;
+  flex: 1 1 300px;
 }
 
 .semestre h2 {
-    color: #6cb6ff;
+  text-align: center;
+  color: #54c5b4;
 }
 
 .materia {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 8px;
-    background-color: #fcdde8;
-    color: #333;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  display: block;
+  background: #ffe3f2;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 6px 0;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: left;
 }
 
 .materia:hover {
-    background-color: #ffe3ef;
-}
-
-.materia.aprobada {
-    background-color: #b2f2bb;
-    color: #155724;
+  background: #fdd6ec;
 }
 
 .materia.bloqueada {
-    background-color: #d6d8db;
-    color: #999;
-    cursor: not-allowed;
+  background: #e0e0e0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.materia.aprobada {
+  background: #c3e6cb;
+  text-decoration: line-through;
+}
+
+@media (max-width: 600px) {
+  .semestre {
+    flex: 1 1 100%;
+  }
 }
