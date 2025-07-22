@@ -1,17 +1,16 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f0fff9;
+  background-color: #e0f7f5;
   margin: 0;
   padding: 20px;
-  color: #333;
 }
 
 h1 {
   text-align: center;
-  color: #00796b;
+  color: #003f3f;
 }
 
-.contenedor-malla {
+.malla {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -19,53 +18,35 @@ h1 {
 }
 
 .semestre {
-  background-color: #e0f7fa;
-  border: 2px solid #a5d6a7;
-  border-radius: 10px;
+  background-color: #d6f5f3;
   padding: 15px;
-  width: 300px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .semestre h2 {
-  color: #004d40;
-  margin-top: 0;
+  text-align: center;
+  color: #004d4d;
+  margin-bottom: 10px;
 }
 
 .materia {
-  background-color: #ffe4ec;
-  padding: 10px;
-  margin: 8px 0;
+  background-color: #a3e4d7;
+  color: #003f3f;
+  padding: 8px 10px;
+  margin: 5px 0;
   border-radius: 6px;
+  text-align: center;
   cursor: pointer;
-  transition: 0.3s ease;
-  border: 1px solid #f48fb1;
+  transition: background-color 0.2s ease;
 }
 
 .materia:hover {
-  background-color: #f8bbd0;
+  background-color: #76d7c4;
 }
 
 .materia.aprobada {
-  background-color: #b2ebf2;
   text-decoration: line-through;
-  font-weight: bold;
-}
-
-.materia.bloqueada {
-  background-color: #eee;
-  color: #aaa;
-  cursor: not-allowed;
-  text-decoration: line-through;
-}
-
-@media (max-width: 768px) {
-  .contenedor-malla {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .semestre {
-    width: 90%;
-  }
+  background-color: #ffd6e7;
 }
