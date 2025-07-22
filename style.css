@@ -1,18 +1,17 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f9f7;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0fff9;
   margin: 0;
   padding: 20px;
+  color: #333;
 }
 
-#titulo {
+h1 {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #2c3e50;
+  color: #00796b;
 }
 
-#malla-container {
+.contenedor-malla {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -20,61 +19,52 @@ body {
 }
 
 .semestre {
-  background-color: #d0f0ec; /* menta suave */
-  padding: 10px;
-  border: 2px solid #76c7b7;
+  background-color: #e0f7fa;
+  border: 2px solid #a5d6a7;
   border-radius: 10px;
-  width: 250px;
-  min-height: 200px;
+  padding: 15px;
+  width: 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.semestre h3 {
-  text-align: center;
-  color: #2c3e50;
+.semestre h2 {
+  color: #004d40;
+  margin-top: 0;
 }
 
 .materia {
-  background-color: #ffe6f0; /* rosado pálido */
-  padding: 8px;
-  margin: 5px 0;
-  border-radius: 5px;
-  border: 1px solid #f48fb1;
+  background-color: #ffe4ec;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
   cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
+  border: 1px solid #f48fb1;
 }
 
-/* Hover en materias desbloqueadas */
-.materia:not(.bloqueada):hover {
-  background-color: #d1c4e9; /* celeste pálido */
-  border-color: #7986cb;
-  color: #283593;
+.materia:hover {
+  background-color: #f8bbd0;
 }
 
-/* Materias bloqueadas */
+.materia.aprobada {
+  background-color: #b2ebf2;
+  text-decoration: line-through;
+  font-weight: bold;
+}
+
 .materia.bloqueada {
-  background-color: #f3e5f5;
-  border-color: #ce93d8;
-  color: #a1887f;
+  background-color: #eee;
+  color: #aaa;
   cursor: not-allowed;
   text-decoration: line-through;
 }
 
-/* Materias aprobadas */
-.materia.aprobada {
-  background-color: #b3e5fc;
-  border-color: #039be5;
-  color: #01579b;
-  text-decoration: line-through;
-  font-weight: 700;
-}
-
-/* Responsive */
-@media (max-width: 700px) {
-  #malla-container {
+@media (max-width: 768px) {
+  .contenedor-malla {
     flex-direction: column;
     align-items: center;
   }
+
   .semestre {
     width: 90%;
   }
