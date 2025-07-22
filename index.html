@@ -7,92 +7,83 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Malla Curricular Turismo</h1>
-  <div id="malla-container">
+  <h1>Malla Curricular - Turismo</h1>
+  <div class="contenedor-malla">
+
     <!-- 1er Semestre -->
-    <div class="semestre" data-semestre="1">
+    <div class="semestre">
       <h2>1er Semestre</h2>
-      <button class="materia" data-materia="mat-financiera" data-abre="estadistica-descriptiva,economia-turismo">Matemáticas financiera</button>
-      <button class="materia" data-materia="introduccion-turismo" data-abre="historia-ecuador">Introducción al turismo</button>
-      <button class="materia" data-materia="geografia-turistica" data-abre="ecologia-medio-ambiente">Geografía turística</button>
-      <button class="materia" data-materia="lenguaje-comunicacion" data-abre="investigacion">Lenguaje y comunicación</button>
-      <button class="materia" data-materia="ingles-i" data-abre="ingles-ii">Inglés I</button>
+      <div class="materia" data-id="matematicas">Matemáticas financiera</div>
+      <div class="materia" data-id="introduccion">Introducción al turismo</div>
+      <div class="materia" data-id="geografia">Geografía turística</div>
+      <div class="materia" data-id="lenguaje">Lenguaje y comunicación</div>
+      <div class="materia" data-id="ingles1">Inglés I</div>
     </div>
 
     <!-- 2do Semestre -->
-    <div class="semestre" data-semestre="2">
+    <div class="semestre">
       <h2>2do Semestre</h2>
-      <button class="materia" data-materia="etiqueta-protocolo" data-abre="">Etiqueta y protocolo para turismo y hotelería</button>
-      <button class="materia" data-materia="historia-ecuador" data-abre="patrimonio-cultural">Historia del Ecuador</button>
-      <button class="materia" data-materia="ecologia-medio-ambiente" data-abre="tecnicas-de-guiar,patrimonio-natural">Ecología y medio ambiente</button>
-      <button class="materia" data-materia="investigacion" data-abre="">Investigación</button>
-      <button class="materia" data-materia="ingles-ii" data-abre="ingles-iii">Inglés II</button>
+      <div class="materia" data-id="etiqueta">Etiqueta y protocolo para turismo y hotelería</div>
+      <div class="materia bloqueada" data-id="historia">Historia del Ecuador</div>
+      <div class="materia bloqueada" data-id="ecologia">Ecología y medio ambiente</div>
+      <div class="materia bloqueada" data-id="investigacion">Investigación</div>
+      <div class="materia bloqueada" data-id="ingles2">Inglés II</div>
     </div>
 
     <!-- 3er Semestre -->
-    <div class="semestre" data-semestre="3">
+    <div class="semestre">
       <h2>3er Semestre</h2>
-      <button class="materia" data-materia="estadistica-descriptiva" data-abre="administracion-turistica">Estadística descriptiva</button>
-      <button class="materia" data-materia="economia-turismo" data-abre="administracion-turistica">Economía del turismo</button>
-      <button class="materia" data-materia="patrimonio-cultural" data-abre="etnografia-turistica">Patrimonio cultural</button>
-      <button class="materia" data-materia="tecnicas-de-guiar" data-abre="operacion-turistica">Técnicas de guiar</button>
-      <button class="materia" data-materia="ingles-iii" data-abre="ingles-lv">Inglés III</button>
+      <div class="materia bloqueada" data-id="estadistica">Estadística descriptiva</div>
+      <div class="materia bloqueada" data-id="economia">Economía del turismo</div>
+      <div class="materia bloqueada" data-id="patrimonio">Patrimonio cultural</div>
+      <div class="materia bloqueada" data-id="guiar">Técnicas de guiar</div>
+      <div class="materia bloqueada" data-id="ingles3">Inglés III</div>
     </div>
 
     <!-- 4to Semestre -->
-    <div class="semestre" data-semestre="4">
+    <div class="semestre">
       <h2>4to Semestre</h2>
-      <button class="materia" data-materia="administracion-turistica" data-abre="direccion-hotelera,contabilidad-administrativa">Administración turística</button>
-      <button class="materia" data-materia="servicio-comunitario" data-abre="">Servicio comunitario</button>
-      <button class="materia" data-materia="etnografia-turistica" data-abre="">Etnografía turística del Ecuador</button>
-      <button class="materia" data-materia="operacion-turistica" data-abre="agencias-de-viajes">Operación turística</button>
-      <button class="materia" data-materia="patrimonio-natural" data-abre="planificacion-territorial">Patrimonio Natural</button>
-      <button class="materia" data-materia="ingles-lv" data-abre="ingles-v">Inglés LV</button>
+      <div class="materia bloqueada" data-id="administracion">Administración turística</div>
+      <div class="materia" data-id="servicio">Servicio comunitario</div>
+      <div class="materia bloqueada" data-id="etnografia">Etnografía turística del Ecuador</div>
+      <div class="materia bloqueada" data-id="operacion">Operación turística</div>
+      <div class="materia bloqueada" data-id="natural">Patrimonio Natural</div>
+      <div class="materia bloqueada" data-id="ingles4">Inglés IV</div>
     </div>
 
     <!-- 5to Semestre -->
-    <div class="semestre" data-semestre="5">
+    <div class="semestre">
       <h2>5to Semestre</h2>
-      <button class="materia" data-materia="direccion-hotelera" data-abre="gestion-talento-humano">Dirección hotelera</button>
-      <button class="materia" data-materia="contabilidad-administrativa" data-abre="gestion-alimentos-bebidas,emprendimiento-innovacion">Contabilidad administrativa</button>
-      <button class="materia" data-materia="agencias-de-viajes" data-abre="industria-aerea,sistemas-reserva">Agencias de viajes</button>
-      <button class="materia" data-materia="planificacion-territorial" data-abre="gestion-calidad-turistica">Planificación territorial</button>
-      <button class="materia" data-materia="ingles-v" data-abre="ingles-vl">Inglés V</button>
+      <div class="materia bloqueada" data-id="direccion">Dirección hotelera</div>
+      <div class="materia bloqueada" data-id="contabilidad">Contabilidad administrativa</div>
+      <div class="materia bloqueada" data-id="agencias">Agencias de viajes</div>
+      <div class="materia bloqueada" data-id="planificacion">Planificación territorial</div>
+      <div class="materia bloqueada" data-id="ingles5">Inglés V</div>
     </div>
 
     <!-- 6to Semestre -->
-    <div class="semestre" data-semestre="6">
+    <div class="semestre">
       <h2>6to Semestre</h2>
-      <button class="materia" data-materia="gestion-talento-humano" data-abre="marketing-turistico">Gestión de talento humano</button>
-      <button class="materia" data-materia="gestion-alimentos-bebidas" data-abre="">Gestión de alimentos y bebidas</button>
-      <button class="materia" data-materia="practica-laboral-1" data-abre="practicas-laborales-ll">Práctica laboral 1</button>
-      <button class="materia" data-materia="industria-aerea" data-abre="sistemas-reserva">Industria aérea</button>
-      <button class="materia" data-materia="gestion-calidad-turistica" data-abre="">Gestión de la calidad turística</button>
-      <button class="materia" data-materia="ingles-vl" data-abre="ingles-vii">Inglés VL</button>
+      <div class="materia bloqueada" data-id="talento">Gestión de talento humano</div>
+      <div class="materia bloqueada" data-id="alimentos">Gestión de alimentos y bebidas</div>
+      <div class="materia bloqueada" data-id="practica1">Práctica laboral I</div>
+      <div class="materia bloqueada" data-id="industria">Industria aérea y sistemas de reserva</div>
+      <div class="materia bloqueada" data-id="calidad">Gestión de la calidad turística</div>
+      <div class="materia bloqueada" data-id="ingles6">Inglés VI</div>
     </div>
 
     <!-- 7mo Semestre -->
-    <div class="semestre" data-semestre="7">
+    <div class="semestre">
       <h2>7mo Semestre</h2>
-      <button class="materia" data-materia="marketing-turistico" data-abre="tendencias-turisticas">Marketing turístico</button>
-      <button class="materia" data-materia="emprendimiento-innovacion" data-abre="">Emprendimiento e innovación</button>
-      <button class="materia" data-materia="practicas-laborales-ll" data-abre="diseno-integracion-curricular">Prácticas laborales II</button>
-      <button class="materia" data-materia="gestion-destinos-turisticos" data-abre="">Gestión de destinos turísticos</button>
-      <button class="materia" data-materia="turismo-sostenible" data-abre="">Turismo sostenible</button>
-      <button class="materia" data-materia="ingles-vii" data-abre="speaking-reporting">Inglés VII</button>
+      <div class="materia bloqueada" data-id="marketing">Marketing turístico</div>
+      <div class="materia bloqueada" data-id="emprendimiento">Emprendimiento e innovación</div>
+      <div class="materia bloqueada" data-id="practica2">Prácticas laborales II</div>
+      <div class="materia bloqueada" data-id="destinos">Gestión de destinos turísticos</div>
+      <div class="materia bloqueada" data-id="sostenible">Turismo sostenible</div>
+      <div class="materia bloqueada" data-id="ingles7">Inglés VII</div>
     </div>
 
     <!-- 8vo Semestre -->
-    <div class="semestre" data-semestre="8">
+    <div class="semestre">
       <h2>8vo Semestre</h2>
-      <button class="materia" data-materia="tendencias-turisticas" data-abre="">Tendencias turísticas</button>
-      <button class="materia" data-materia="gestion-eventos-convenciones" data-abre="">Gestión de eventos y convenciones</button>
-      <button class="materia" data-materia="diseno-integracion-curricular" data-abre="">Diseño de integración curricular</button>
-      <button class="materia" data-materia="modalidades-turisticas" data-abre="">Modalidades turísticas</button>
-      <button class="materia" data-materia="speaking-reporting" data-abre="">Speaking and reporting speeches</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+      <div class="materia b
